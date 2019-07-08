@@ -1,7 +1,8 @@
-package tech.tsdev.imagerepository
+package tech.tsdev.imagerepository.ui
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import tech.tsdev.imagerepository.R
 
 class MainActivity : AppCompatActivity() {
 
