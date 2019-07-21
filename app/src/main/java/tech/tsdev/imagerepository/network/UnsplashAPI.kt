@@ -1,6 +1,6 @@
 package tech.tsdev.imagerepository.network
 
-import retrofit2.Call
+import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Query
 import tech.tsdev.imagerepository.BuildConfig
@@ -14,5 +14,5 @@ interface UnsplashAPI {
         @Query("page") page: Int,
 
         @Query("per_page") perPage: Int
-    ): Call<UnsplashResponse>
+    ): Observable<List<UnsplashResponse>>
 }
