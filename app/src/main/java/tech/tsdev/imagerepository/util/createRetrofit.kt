@@ -1,6 +1,5 @@
 package tech.tsdev.imagerepository.util
 
-import io.reactivex.internal.schedulers.RxThreadFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
