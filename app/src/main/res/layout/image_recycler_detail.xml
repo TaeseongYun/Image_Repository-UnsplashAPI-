@@ -2,32 +2,40 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
                                                    xmlns:tools="http://schemas.android.com/tools"
                                                    android:layout_width="match_parent"
-                                                   android:layout_height="wrap_content">
+                                                   android:layout_height="match_parent">
 
-    <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent">
-        <tech.tsdev.imagerepository.util.GlideImageView android:layout_width="50dp" android:layout_height="50dp"
-                                                        tools:src="@mipmap/ic_launcher" android:id="@+id/img_user"/>
-
-        <TextView
-                android:id="@+id/tv_username"
-                android:layout_marginTop="@dimen/margin_normal"
-                android:layout_width="match_parent" android:layout_height="wrap_content"
-                tools:text="Test" android:layout_toEndOf="@+id/img_user"/>
-
-        <com.google.android.material.card.MaterialCardView
-                android:layout_below="@+id/img_user"
+    <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/material_card_padding"
+            android:translationZ="@dimen/material_card_padding"
+            android:elevation="@dimen/material_card_padding">
+        <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="@dimen/material_card_padding"
-                android:translationZ="@dimen/material_card_padding"
-                android:elevation="@dimen/material_card_padding">
+                android:layout_height="match_parent" android:layout_marginTop="@dimen/material_card_padding">
             <tech.tsdev.imagerepository.util.GlideImageView
+                    android:layout_width="50dp" android:layout_height="50dp"
+                    tools:src="@mipmap/ic_launcher" android:id="@+id/img_user"
+                    android:layout_marginStart="@dimen/margin_normal"/>
+
+            <TextView
+                    android:layout_marginStart="@dimen/margin_normal"
+                    android:id="@+id/tv_username"
+                    android:layout_marginTop="@dimen/margin_large"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    tools:text="Test" android:layout_toEndOf="@+id/img_user"/>
+
+
+            <tech.tsdev.imagerepository.util.GlideImageView
+                    android:layout_below="@+id/img_user"
                     android:layout_width="match_parent"
                     android:id="@+id/img_userUpload"
+                    android:layout_marginTop="@dimen/margin_normal"
                     tools:src="@mipmap/ic_launcher"
                     android:layout_height="match_parent"/>
-        </com.google.android.material.card.MaterialCardView>
-    </RelativeLayout>
+
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

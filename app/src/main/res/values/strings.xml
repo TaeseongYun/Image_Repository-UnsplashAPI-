@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">ImageRepository</string>
+
+    <string name="bnv_image">Image</string>
+
+    <string name="bnv_like">Like</string>
 </resources>
