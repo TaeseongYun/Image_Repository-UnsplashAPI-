@@ -18,7 +18,7 @@ class MainActivityViewModel(
     fun loadImageList(page: Int, perPage: Int) {
         disposable += unsplashRepository.getLoadImages(page, perPage)
             .subscribeOn(Schedulers.io())
-            .unsubscribeOn(Schedulers.computation())
+//            .unsubscribeOn(Schedulers.computation())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
                 it.forEach { unsplashItem ->

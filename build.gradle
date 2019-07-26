@@ -37,3 +37,9 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+ext {
+    Properties properties = new Properties()
+    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+    UNSPLASH_KEY = properties.getProperty('UNSPLASH_KEY', "\"\"")
+}

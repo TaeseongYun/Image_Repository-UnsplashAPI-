@@ -17,7 +17,7 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         buildConfigField "String", "UNSPLASH_KEY",
-                project.properties["UNSPLASH_KEY"] ?: "\"NOT_FOUND\""
+                rootProject.ext.UNSPLASH_KEY
     }
 
     buildTypes {
@@ -41,7 +41,6 @@ dependencies {
     //OkHttp
     implementation "com.squareup.okhttp3:okhttp:$OkHttp_version"
     implementation "com.squareup.okhttp3:logging-interceptor:$OkHttp_version"
-
 
     //retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"

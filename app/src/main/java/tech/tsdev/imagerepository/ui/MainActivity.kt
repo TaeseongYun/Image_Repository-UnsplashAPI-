@@ -11,6 +11,7 @@ import tech.tsdev.imagerepository.data.source.UnsplashRepository
 import tech.tsdev.imagerepository.network.RetrofitObject
 import tech.tsdev.imagerepository.ui.adapter.ImageRecyclerAdapter
 import tech.tsdev.imagerepository.ui.viewmodel.MainActivityViewModel
+import tech.tsdev.imagerepository.util.inject
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,7 +23,12 @@ class MainActivity : AppCompatActivity() {
         get() = UnsplashRepository.getInstance(RetrofitObject.getAPI)
 
     private val mainActivity: MainActivityViewModel by lazy(LazyThreadSafetyMode.NONE) {
-        MainActivityViewModel::class.java.inject(this)
+        MainActivityViewModel::class.java.inject(this) {
+            MainActivityViewModel(
+                imageRepository,
+                imageRecyclerAdapter
+            )
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

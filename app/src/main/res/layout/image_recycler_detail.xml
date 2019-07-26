@@ -18,13 +18,14 @@
                 android:layout_below="@+id/img_user"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="@dimen/material_card_padding"
                 android:translationZ="@dimen/material_card_padding"
                 android:elevation="@dimen/material_card_padding">
             <tech.tsdev.imagerepository.util.GlideImageView
                     android:layout_width="match_parent"
                     android:id="@+id/img_userUpload"
                     tools:src="@mipmap/ic_launcher"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="match_parent"/>
         </com.google.android.material.card.MaterialCardView>
     </RelativeLayout>
 

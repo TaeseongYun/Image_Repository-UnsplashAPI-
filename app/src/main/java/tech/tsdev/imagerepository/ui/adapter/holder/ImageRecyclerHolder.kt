@@ -18,7 +18,7 @@ class ImageRecyclerHolder(context: Context, parent: ViewGroup) : RecyclerView.Vi
 
     private fun View.onBind(items: UnsplashResponse) {
         tv_username.text = items.user.username
-        img_user.getLoadImage(items.user.portfolio_url)
-        img_userUpload.getLoadImage(items.urls.regular)
+        img_user.getloadProfileImage(items.user.profile_image.medium)
+        img_userUpload.getLoadImage(items.urls.full)
     }
 }
