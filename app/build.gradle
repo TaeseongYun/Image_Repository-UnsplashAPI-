@@ -20,6 +20,9 @@ android {
                 rootProject.ext.UNSPLASH_KEY
     }
 
+    dataBinding {
+        enabled = true
+    }
     buildTypes {
         release {
             minifyEnabled false

@@ -9,8 +9,13 @@ import tech.tsdev.imagerepository.ui.adapter.holder.ImageRecyclerHolder
 
 class ImageRecyclerAdapter(private val context: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>(),
     BaseAdapter<UnsplashResponse> {
+    override fun recyclerOnClickListener(onClick: (position: Int) -> Unit) {
+
+    }
 
     private val imageList = mutableListOf<UnsplashResponse>()
+
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder =
         ImageRecyclerHolder(context, parent)

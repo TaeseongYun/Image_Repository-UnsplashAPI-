@@ -3,11 +3,13 @@ package tech.tsdev.imagerepository.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
 import tech.tsdev.imagerepository.R
 import tech.tsdev.imagerepository.data.source.UnsplashRepository
+import tech.tsdev.imagerepository.databinding.ActivityMainBinding
 import tech.tsdev.imagerepository.network.RetrofitObject
 import tech.tsdev.imagerepository.ui.adapter.ImageRecyclerAdapter
 import tech.tsdev.imagerepository.ui.viewmodel.MainActivityViewModel
@@ -33,11 +35,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        val binding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
 
 
         mainActivity.loadImageList(0, 50)
+
+
 
         recycler_view.run {
             adapter = imageRecyclerAdapter

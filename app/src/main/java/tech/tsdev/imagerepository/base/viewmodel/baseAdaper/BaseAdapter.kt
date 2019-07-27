@@ -8,4 +8,6 @@ interface BaseAdapter<T> {
     fun getItems(position: Int): T
 
     fun getItemCount(): Int
+
+    fun recyclerOnClickListener(onClick: (position: Int) -> Unit)
 }
