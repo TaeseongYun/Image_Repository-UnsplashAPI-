@@ -12,7 +12,7 @@ import tech.tsdev.imagerepository.data.source.UnsplashRepository
 import tech.tsdev.imagerepository.ui.MainActivity
 import tech.tsdev.imagerepository.util.plusAssign
 
-class MainActivityViewModel(
+class ImageListFragmentViewModel(
     private val unsplashRepository: UnsplashRepository,
     private val imageRecyclerModel: BaseAdapter<UnsplashResponse>
 ) : BaseViewModel() {

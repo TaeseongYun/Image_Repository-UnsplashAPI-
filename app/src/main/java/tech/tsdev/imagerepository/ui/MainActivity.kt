@@ -4,48 +4,45 @@ package tech.tsdev.imagerepository.ui
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.GridLayoutManager
-import kotlinx.android.synthetic.main.activity_main.*
+import androidx.fragment.app.Fragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import tech.tsdev.imagerepository.R
-import tech.tsdev.imagerepository.data.source.UnsplashRepository
 import tech.tsdev.imagerepository.databinding.ActivityMainBinding
-import tech.tsdev.imagerepository.network.RetrofitObject
-import tech.tsdev.imagerepository.ui.adapter.ImageRecyclerAdapter
-import tech.tsdev.imagerepository.ui.viewmodel.MainActivityViewModel
-import tech.tsdev.imagerepository.util.inject
+import tech.tsdev.imagerepository.ui.fragment.ImageListFragment
+import tech.tsdev.imagerepository.util.createFragment
+
 
 class MainActivity : AppCompatActivity() {
 
-    private val imageRecyclerAdapter: ImageRecyclerAdapter by lazy {
-        ImageRecyclerAdapter(this)
+    private val imageListFragment: ImageListFragment by lazy {
+        ImageListFragment()
     }
 
-    private val imageRepository: UnsplashRepository
-        get() = UnsplashRepository.getInstance(RetrofitObject.getAPI)
-
-    private val mainActivity: MainActivityViewModel by lazy(LazyThreadSafetyMode.NONE) {
-        MainActivityViewModel::class.java.inject(this) {
-            MainActivityViewModel(
-                imageRepository,
-                imageRecyclerAdapter
-            )
+    private val mOnNavigationItemSelectedListener =
+        BottomNavigationView.OnNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.image_bottom -> {
+                    imageListFragment.createView()
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.favorite_bottom -> {
+                    return@OnNavigationItemSelectedListener true
+                }
+            }
+            false
         }
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
+        binding.bottomNavigationView.setOnNavigationItemReselectedListener { mOnNavigationItemSelectedListener }
 
+        imageListFragment.createView()
+        binding.root
+    }
 
-        mainActivity.loadImageList(0, 50)
-
-
-
-        recycler_view.run {
-            adapter = imageRecyclerAdapter
-            layoutManager = GridLayoutManager(this@MainActivity, 1)
-        }
+    private fun Fragment.createView() {
+        createFragment(R.id.container, this)
     }
 }

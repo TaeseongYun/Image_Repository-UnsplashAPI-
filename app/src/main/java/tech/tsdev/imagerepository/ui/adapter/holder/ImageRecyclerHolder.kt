@@ -9,7 +9,7 @@ import kotlinx.android.synthetic.main.image_recycler_detail.view.*
 import tech.tsdev.imagerepository.R
 import tech.tsdev.imagerepository.data.UnsplashResponse
 
-class ImageRecyclerHolder(context: Context, parent: ViewGroup) :
+class ImageRecyclerHolder(context: Context?, parent: ViewGroup) :
     RecyclerView.ViewHolder(
         LayoutInflater.from(context).inflate(R.layout.image_recycler_detail, parent, false)
     ) {
